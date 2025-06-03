@@ -1,0 +1,205 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "4311bf98-3aff-4036-9270-1d81840e7a13",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from PIL import Image\n",
+    "pic=Image.open('C:/Users/abbie/OneDrive/桌面/比熊.jpg')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "6163c3a3-b2d2-4d55-ac07-34762e33abcd",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "圖片寬度: 1440\n",
+      "圖片高度: 1777\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('圖片寬度:',pic.width)\n",
+    "print('圖片高度:',pic.height)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "5ecd7133-1264-4a14-a857-95df7ce02651",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "圖片檔案格式: JPEG\n",
+      "圖片色彩模式: RGB\n",
+      "圖片大小: (1440, 1777)\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('圖片檔案格式:',pic.format)\n",
+    "print('圖片色彩模式:',pic.mode)\n",
+    "print('圖片大小:',pic.size)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "a00a4f64-e341-4891-aa8f-e84ca3a431f1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "pic.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "5e7a6642-38f6-4140-8285-fcd6b5c3b278",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "原本的圖片色彩模式: RGB\n",
+      "轉換黑白後的圖片色彩模式: 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('原本的圖片色彩模式:',pic.mode)\n",
+    "new_pic=pic.convert('1')\n",
+    "new_pic.show()\n",
+    "print('轉換黑白後的圖片色彩模式:', new_pic.mode)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "eff41e04-a976-4232-8c4e-4af94a9de176",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "new_pic=pic.rotate(30)\n",
+    "new_pic.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "4bd0e2f6-93f5-4ad4-8c25-95e2d6766b4b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "new_pic2=pic.rotate(-30)\n",
+    "new_pic2.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "6a27fcf5-20e1-4d82-a3c2-c54fe2f43edf",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from PIL import Image\n",
+    "from PIL import ImageFilter\n",
+    "pic=Image.open('C:/Users/abbie/OneDrive/桌面/比熊.jpg')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "id": "2f0d6c5d-8bae-448e-bb4d-7909e197c57e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "new_pic=pic.filter(ImageFilter.CONTOUR)\n",
+    "new_pic.save('C:/Users/abbie/OneDrive/桌面.jpg')\n",
+    "new_pic.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "7dca17a7-c5ab-4554-922a-2e57f89ff8d5",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "原圖大小: (1440, 1777)\n",
+      "縮放後圖形大小: (400, 400)\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('原圖大小:', pic.size)\n",
+    "new_pic=pic.resize((400,400))\n",
+    "print('縮放後圖形大小:', new_pic.size)\n",
+    "new_pic.save('C:/Users/abbie/OneDrive/桌面.jpg')\n",
+    "new_pic.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "705aa8eb-328a-46db-b159-e91405fe5b2b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from PIL import Image, ImageFont, ImageDraw\n",
+    "pic=Image.open('C:/Users/abbie/OneDrive/桌面/比熊.jpg')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "101d608a-1dd4-41ef-ba01-bd8d48de973e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "t_font=ImageFont.truetype('c://Windows/(Fonts//Arial//arial.ttf', 30)\n",
+    "draw=ImageDraw. Draw(pic)\n",
+    "\n",
+    "draw. text((20,30), 'TOKYO', font=t_font, f111=(255,0,0,255)) \n",
+    "draw. text((20,100), 'dog', font=t_font, fill=(9,255,0,255)) \n",
+    "pic.show()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

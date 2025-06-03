@@ -1,0 +1,149 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "6981e4b8-6232-4206-b109-e04878dfa5ae",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "36\n"
+     ]
+    }
+   ],
+   "source": [
+    "# x^2\n",
+    "\n",
+    "lamret=lambda x: x**2\n",
+    "print(lamret(6))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "d4d29493-6499-4e97-9e88-5db22384ed91",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "function"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(lamret)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "72ff0b70-10a9-42e3-9a91-06be4b4e1bb0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "#f(x,y,z)=(x-y)^z/2\n",
+    "\n",
+    "lambret2=lambda x, y, z: ((x-y)**z)/2\n",
+    "print(lambret2(3,1,2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "37409beb-73ac-4575-88a4-465a3e094a5a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "16\n"
+     ]
+    }
+   ],
+   "source": [
+    "lambret3=lambda x, y: x**2 if x>y else 1/x**2\n",
+    "print(lambret3(4,3))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "a749b84d-77e9-43bd-82cf-15ba10ea6f3e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0.0625\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(lambret3(4,5))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "d6fd333d-32cf-4a6c-924e-8cc0e37ea732",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "呼叫函數(x**2)+(4*x)+6 38\n"
+     ]
+    }
+   ],
+   "source": [
+    "# x^2+4x+6\n",
+    "\n",
+    "def polyequ(x):\n",
+    "    return(x**2)+(4*x)+6\n",
+    "sample=4\n",
+    "result=polyequ(sample)\n",
+    "print('呼叫函數(x**2)+(4*x)+6', result)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

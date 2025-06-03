@@ -1,0 +1,197 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "72dfe3ec-de40-4b10-8a38-bf33d964cede",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 重複需 kernel/ restart"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "3035e328-591b-43c0-8b91-adf82711eb92",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting gTTSNote: you may need to restart the kernel to use updated packages.\n",
+      "\n",
+      "  Downloading gTTS-2.5.4-py3-none-any.whl.metadata (4.1 kB)\n",
+      "Requirement already satisfied: requests<3,>=2.27 in c:\\users\\abbie\\anaconda3\\lib\\site-packages (from gTTS) (2.32.3)\n",
+      "Requirement already satisfied: click<8.2,>=7.1 in c:\\users\\abbie\\anaconda3\\lib\\site-packages (from gTTS) (8.1.7)\n",
+      "Requirement already satisfied: colorama in c:\\users\\abbie\\anaconda3\\lib\\site-packages (from click<8.2,>=7.1->gTTS) (0.4.6)\n",
+      "Requirement already satisfied: charset-normalizer<4,>=2 in c:\\users\\abbie\\anaconda3\\lib\\site-packages (from requests<3,>=2.27->gTTS) (3.3.2)\n",
+      "Requirement already satisfied: idna<4,>=2.5 in c:\\users\\abbie\\anaconda3\\lib\\site-packages (from requests<3,>=2.27->gTTS) (3.7)\n",
+      "Requirement already satisfied: urllib3<3,>=1.21.1 in c:\\users\\abbie\\anaconda3\\lib\\site-packages (from requests<3,>=2.27->gTTS) (2.2.3)\n",
+      "Requirement already satisfied: certifi>=2017.4.17 in c:\\users\\abbie\\anaconda3\\lib\\site-packages (from requests<3,>=2.27->gTTS) (2025.1.31)\n",
+      "Downloading gTTS-2.5.4-py3-none-any.whl (29 kB)\n",
+      "Installing collected packages: gTTS\n",
+      "Successfully installed gTTS-2.5.4\n"
+     ]
+    }
+   ],
+   "source": [
+    "pip install gTTS"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "2b6da959-ecbb-45dd-a6f7-88b27eddca3c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from gtts import gTTS\n",
+    "tts=gTTS(text='發發你好嗎?', lang='zh-TW')\n",
+    "tts.save ('fa.mp3')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "1751aabf-7278-4ffc-be97-659242b34eb9",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#gTTs(Google Text-to-Speech)建構式的Lang語言代碼, zh-TW或 zh-CN漢語, 英文en, 日文ja, 法文fr,俄語ru,西班牙語es"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "30dd9339-7a47-4c45-b401-a33c1c1d0b5e",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "pygame 2.6.1 (SDL 2.28.4, Python 3.12.7)\n",
+      "Hello from the pygame community. https://www.pygame.org/contribute.html\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pygame import mixer\n",
+    "mixer.init()\n",
+    "mixer.music.load('fa.mp3')\n",
+    "mixer.music.play()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "id": "0d57d89f-8dba-4d60-b75e-b2680753f7ad",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from gtts import gTTS\n",
+    "tts1=gTTS(text='ありがとう',lang='ja')\n",
+    "tts1.save('japanese_thank_you.mp3')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "448cd16b-46b9-42b7-a577-e057d152ae51",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from pygame import mixer\n",
+    "mixer.init()\n",
+    "mixer.music.load('japanese_thank_you.mp3')\n",
+    "mixer.music.play()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "id": "2f85b35a-fb09-4d0d-b8e6-bb4e6aa821bc",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# temp file\n",
+    "import tempfile\n",
+    "def speak(sentence) :\n",
+    "    with tempfile.NamedTemporaryFile(delete=True) as fp:\n",
+    "        tts=gTTS(text=sentence, lang='zh-CN')\n",
+    "        tts.save(\"{}.mp3\".format(fp.name))\n",
+    "        mixer.music.load('{}.mp3'.format(fp.name))\n",
+    "        mixer.music.play()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "id": "a883259d-5c96-472a-865a-a68cac3d57f8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "speak('發發好帥!!蟋蟀的帥!')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "id": "ecbfaf94-4e8f-4e26-b1ac-4f639b4ccbd1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import tempfile\n",
+    "def speak(sentence):\n",
+    "    with tempfile.NamedTemporaryFile(delete=True) as fp:\n",
+    "        tts1=gTTS(text=sentence, lang='ja')\n",
+    "        tts1.save(\"().mp3\".format(fp.name))\n",
+    "        mixer.music.load('().mp3'.format(fp.name))\n",
+    "        mixer.music.play()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "id": "29f501ff-fde4-49cb-8634-821a2fcf7246",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "#日本詩人 良寬  \"散落的櫻花啊! 就算是在樹梢上的櫻花 終將成為散落的櫻花 -  \"看著散落櫻花的悲哀，盛開的櫻花注定終將同樣的散落-\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "id": "f159419d-9312-4a07-ab3e-c2fdb130e6c3",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "speak('散る桜,残る桜も,散る桜,うらを見せ,おもてを見せて,散るもみぢ,見とて,何か残さむ,春は花,山ほととぎす,秋はもみち葉')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

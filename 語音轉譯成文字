@@ -1,0 +1,146 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "7e0aedc6-0938-4164-bc0e-c78ffe3630db",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Requirement already satisfied: pyaudio in c:\\users\\abbie\\anaconda3\\lib\\site-packages (0.2.14)\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "pip install pyaudio"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "id": "0c35bac3-3e6c-4abf-b6ee-850e579f360c",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "請開始說話（錄音中）...\n",
+      "辨識結果： 中原大學\n"
+     ]
+    }
+   ],
+   "source": [
+    "import speech_recognition as sr\n",
+    "\n",
+    "r = sr.Recognizer()\n",
+    "\n",
+    "with sr.Microphone() as source:\n",
+    "    print(\"請開始說話（錄音中）...\")\n",
+    "    r.adjust_for_ambient_noise(source)  # 讓程式先聽一下背景雜音，校正一下\n",
+    "    audio = r.listen(source)\n",
+    "\n",
+    "try:\n",
+    "    text = r.recognize_google(audio, language='zh-TW')\n",
+    "    print(\"辨識結果：\", text)\n",
+    "except sr.UnknownValueError:\n",
+    "    print(\"無法辨識你的聲音。\")\n",
+    "except sr.RequestError as e:\n",
+    "    print(f\"無法連線到 Google 語音辨識服務；錯誤訊息：{e}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "id": "fde67e62-b92d-4c4a-a1ef-371838b87723",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "請開始說話（錄音中）...\n",
+      "辨識結果： Chong young Christian University\n"
+     ]
+    }
+   ],
+   "source": [
+    "import speech_recognition as sr\n",
+    "\n",
+    "r = sr.Recognizer()\n",
+    "\n",
+    "with sr.Microphone() as source:\n",
+    "    print(\"請開始說話（錄音中）...\")\n",
+    "    r.adjust_for_ambient_noise(source)  # 讓程式先聽一下背景雜音，校正一下\n",
+    "    audio = r.listen(source)\n",
+    "\n",
+    "try:\n",
+    "    text = r.recognize_google(audio, language='en')\n",
+    "    print(\"辨識結果：\", text)\n",
+    "except sr.UnknownValueError:\n",
+    "    print(\"無法辨識你的聲音。\")\n",
+    "except sr.RequestError as e:\n",
+    "    print(f\"無法連線到 Google 語音辨識服務；錯誤訊息：{e}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 88,
+   "id": "c40da8f9-f044-448c-9b37-2d4e98ee0945",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "請開始說話（錄音中）...\n",
+      "辨識結果： 中原キリスト教大学\n"
+     ]
+    }
+   ],
+   "source": [
+    "import speech_recognition as sr\n",
+    "\n",
+    "r = sr.Recognizer()\n",
+    "\n",
+    "with sr.Microphone() as source:\n",
+    "    print(\"請開始說話（錄音中）...\")\n",
+    "    r.adjust_for_ambient_noise(source)  # 讓程式先聽一下背景雜音，校正一下\n",
+    "    audio = r.listen(source)\n",
+    "\n",
+    "try:\n",
+    "    text = r.recognize_google(audio, language='ja')\n",
+    "    print(\"辨識結果：\", text)\n",
+    "except sr.UnknownValueError:\n",
+    "    print(\"無法辨識你的聲音。\")\n",
+    "except sr.RequestError as e:\n",
+    "    print(f\"無法連線到 Google 語音辨識服務；錯誤訊息：{e}\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
